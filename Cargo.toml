@@ -1,6 +1,21 @@
 [package]
 name = "xynok_async_toolkit"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+
 [dependencies]
+xynok_std = { git = "https://github.com/Xynok-Engine/xynok_std.git" }
+
+[target.'cfg(loom)'.dependencies]
+loom = "0.7"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(loom)'] }
+
+[lints.clippy]
+missing_safety_doc = "allow"
