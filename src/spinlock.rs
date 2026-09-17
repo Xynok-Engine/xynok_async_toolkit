@@ -4,8 +4,8 @@ use crate::sync::{AtomicBool, Ordering, UnsafeCell};
 
 pub struct SpinLock<T>
 {
-    pub(super) val:    UnsafeCell<T>,
-    pub(super) locked: CachePadded<AtomicBool>,
+    val:    UnsafeCell<T>,
+    locked: CachePadded<AtomicBool>,
 }
 
 unsafe impl<T: Send> Send for SpinLock<T> {}

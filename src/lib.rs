@@ -13,6 +13,7 @@ pub mod packed;
 pub mod queue_batching;
 pub mod slots;
 pub mod spinlock;
+pub mod swmr_spinlock;
 pub mod steal;
 pub mod random;
 pub mod latch;
